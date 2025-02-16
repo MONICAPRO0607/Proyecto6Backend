@@ -1,37 +1,19 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose')
 
+const authorsSchema = new mongoose.Schema(
+  {
+    name: { type: String, required: true },
+    img: { type: String, required: true },
+    // genre:  {type:mongoose.Types.ObjectId, required: true, ref:"categorias"},
+    // books: {type:mongoose.Types.ObjectId, required:true, ref:"libros"}
+    genre: [{ type: String, required: true }], // Cambiado a un array de cadenas
+    books: [{ type: String, required: true }] // Cambiado a un array de cadenas
+  },
+  {
+    timestamps: true,
+    collection: 'autores'
+  }
+)
 
-const authorsSchema = new mongoose.Schema({
-  name: {type: String, required: true},
-  img: {type: String, required: true},
-  gender: {type: String, required: true, enum: [
-    "Ficción",
-    "No ficción",
-    "Misterio",
-    "Ciencia ficción",
-    "Fantasía",
-    "Biografía",
-    "Autoayuda",
-    "Romance",
-    "Histórica",
-    "Juvenil",
-    "Infantil",
-    "Aventura",
-    "Terror",
-    "Poesía",
-    "Novela",
-    "Clásico",
-    "Humor",
-    "Drama",
-    "Crimen",
-    "Ensayos",
-    "Cuentos cortos"
-  ],
-},
-}, {
-  timestamps: true,
-  collection: "autores",
-});
-
-const authors = mongoose.model("autores", authorsSchema, "autores");
-module.exports = authors;
+const authors = mongoose.model('autores', authorsSchema, 'autores')
+module.exports = authors

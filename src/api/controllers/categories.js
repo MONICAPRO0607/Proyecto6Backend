@@ -21,6 +21,17 @@ const getCategoriesById = async (req, res, next) => {
   }
 }
 
+// Función para obtener 1 categoría por Nombre
+const getCategoryByName = async (req, res, next) => {
+  try {
+    const { name } = req.params
+    const categories = await Categories.findOne(name)
+    return res.status(200).json(categories)
+  } catch (error) {
+    return res.status(400).json({message: 'Error al obtener la categoría por Nombre', error:error.message});
+  }
+}
+
 // Función para crear una categoría: create o newCategories (post)
 const newCategories = async (req, res, next) => {
   try {
@@ -54,4 +65,4 @@ const deleteCategories = async (req, res, next) => {
   }
 }
 
-module.exports = { getCategories, getCategoriesById, newCategories, putCategories, deleteCategories };
+module.exports = { getCategories, getCategoriesById, getCategoryByName, newCategories, putCategories, deleteCategories };
