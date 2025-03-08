@@ -21,4 +21,5 @@ Then I made the model, continuing through the controllers and ending with the ro
 - I have solved the problem of related arrays failing.
 - I have modified the duplication error based on a property that did not exist.
 - I have solved the authors driver problem.
+- I have completed the seed and created a second seed of authors.
 
