@@ -15,7 +15,10 @@ Then I made the model, continuing through the controllers and ending with the ro
    - In authors, I have added genres and books as arrays.
    - I have created authors checking that the books are not duplicated and modified genres to check that it is done correctly.
    - Added functionality to find the category regardless of whether it is written in capitalize or lowercase.
+/
 
-
-
+08/03/2025:
+- I have solved the problem of related arrays failing.
+- I have modified the duplication error based on a property that did not exist.
+- I have solved the authors driver problem.
 
