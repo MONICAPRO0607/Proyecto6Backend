@@ -3,7 +3,8 @@ const Authors = require('../models/authors')
 // Función para obtener todos los autores
 const getAuthor = async (req, res, next) => {
   try {
-    const allAuthors = await Authors.find()
+    const allAuthors = await Authors.find().populate("books");
+    
     return res.status(200).json(allAuthors)
   } catch (error) {
     return res.status(400).json('Error')
@@ -31,11 +32,13 @@ const newAuthor = async (req, res, next) => {
       img,
       genre, // Aquí solo pasamos el array de nombres de categorías
       books // Aquí solo pasamos el array de nombres de libros
-    });
+    })
     const authorSaved = await newAuthor.save()
     return res.status(201).json(authorSaved)
   } catch (error) {
-    return res.status(400).json({message: 'Error al crear el autor', error: error.message})
+    return res
+      .status(400)
+      .json({ message: 'Error al crear el autor', error: error.message })
   }
 }
 
@@ -58,7 +61,7 @@ const deleteAuthor = async (req, res, next) => {
   try {
     const { id } = req.params
     const authorDeleted = await Author.findByIdAndDelete(id)
-    return res.status(200).jason(authorDeleted)
+    return res.status(200).json(authorDeleted)
   } catch (error) {
     return res.status(400).json('Error')
   }

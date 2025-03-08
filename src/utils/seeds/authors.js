@@ -1,18 +1,18 @@
 const mongoose = require('mongoose')
-const Book = require('../../api/models/books')
-const books = require('../../data/books')
+const Author = require('../../api/models/authors')
+const authors = require('../../data/authors')
 
-const lanzarSemillaLibros = async () => {
+const lanzarSemillaAutores = async () => {
   try {
     await mongoose.connect(
       'mongodb+srv://monicapro0607:jSSct5bJ4GtHi7bN@cluster0.lbswu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
     )
 
-    await Book.collection.drop()
-    console.log('Libros eliminados')
+    await Author.collection.drop()
+    console.log('Autores eliminados')
 
-    await Book.insertMany(books)
-    console.log('Libros añadidos', books)
+    await Author.insertMany(authors)
+    console.log('Autores añadidos', authors)
 
     await mongoose.disconnect()
     console.log('Se desconecta la BBDD')
@@ -21,4 +21,4 @@ const lanzarSemillaLibros = async () => {
   }
 }
 
-lanzarSemillaLibros();
+lanzarSemillaAutores()
