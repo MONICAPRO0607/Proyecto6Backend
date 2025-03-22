@@ -3,8 +3,8 @@ const mongoose = require('mongoose')
 const bookSchema = new mongoose.Schema(
   {
     title: { type: String, required: true },
-    author: { type: String, required: true },
-    genre: { type: Array, required: true, ref: 'categorias' }
+    author: { type: mongoose.Schema.Types.ObjectId, ref: 'autores' },
+    genre: { type: [mongoose.Schema.Types.ObjectId], ref: 'categorias' }
   },
   {
     timestamps: true,

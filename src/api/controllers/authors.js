@@ -16,7 +16,7 @@ const getAuthorById = async (req, res, next) => {
   try {
     const { id } = req.params
     const autor = await Authors.findById(id)
-    return res.status(200).json(libro)
+    return res.status(200).json(autor)
   } catch (error) {
     return res.status(400).json('Error')
   }
@@ -46,21 +46,19 @@ const newAuthor = async (req, res, next) => {
 const putAuthor = async (req, res, next) => {
   try {
     const { id } = req.params
-    const newAuthor = new Author(req.body)
-    newAuthor.id = id
-    const authorUpdate = await Author.findByIdAndUpdate(id, newAuthor, {
-      new: true
-    })
+    // const newAuthor = new Author(req.body)
+    // newAuthor.id = id
+    const authorUpdate = await Author.findByIdAndUpdate(id, req.body, { new: true })
     return res.status(200).json(authorUpdate)
   } catch (error) {
-    return res.status(400).json('Error')
+    return res.status(400).json('Error al actualizar el autor')
   }
 }
 // deleteAuthor
 const deleteAuthor = async (req, res, next) => {
   try {
     const { id } = req.params
-    const authorDeleted = await Author.findByIdAndDelete(id)
+    const authorDeleted = await Authors.findByIdAndDelete(id)
     return res.status(200).json(authorDeleted)
   } catch (error) {
     return res.status(400).json('Error')

@@ -4,7 +4,7 @@ const Book = require('../models/books')
 const getBooks = async (req, res, next) => {
   try {
     // const allLibros = await Book.find();
-    const allLibros = await Book.find().populate('author') // ESTO SE DEBE PONER SI SE RELACIONAN LAS COLECCIONES
+    const allLibros = await Book.find().populate('author').populate('genre'); // ESTO SE DEBE PONER SI SE RELACIONAN LAS COLECCIONES
 
     return res.status(200).json(allLibros)
   } catch (error) {
