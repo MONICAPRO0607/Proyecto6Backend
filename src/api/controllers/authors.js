@@ -96,7 +96,7 @@ const newAuthor = async (req, res, next) => {
     const newAuthor = new Authors({
       name,
       img,
-      genre: category, // Asociamos las categorías con el autor
+      genre: categories, // Asociamos las categorías con el autor
       books: bookIds, // Asociamos los libros con el autor
     });
 
