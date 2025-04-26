@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const categoriesSchema = new mongoose.Schema({
   title: {type: String, required: true},
   author: {type: String, required: true},
-  img: {type: String, required: true},
   gender: {type: String, required: true, enum: [
     "Ficción",
     "No ficción",

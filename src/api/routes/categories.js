@@ -1,3 +1,4 @@
+const { isAuth, isAdmin } = require("../../middlewares/auth");
 const { getCategories, getCategoriesById, newCategories, putCategories, deleteCategories } = require("../controllers/categories");
 
 const categoriesRoutes= require("express").Router();

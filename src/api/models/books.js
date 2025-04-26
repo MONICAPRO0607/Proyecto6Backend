@@ -2,9 +2,8 @@ const mongoose = require("mongoose");
 
 const bookSchema = new mongoose.Schema({
   title: {type: String, required: true},
-  author: {type: String, required: true},
-  img: {type: String, required: true},
-  // author: { type: mongoose.Types.ObjectId, required: false, ref:"autores" }, SE PODRÍA PONER ESTO PARA RELACIONAR COLECCIONES
+  img: {type: String, trim: true, required: true},
+  author: { type: mongoose.Types.ObjectId, ref:"autores" },//  SE PODRÍA PONER ESTO PARA RELACIONAR COLECCIONES
   gender: {type: String, required: true, enum: [
     "Ficción",
     "No ficción",
