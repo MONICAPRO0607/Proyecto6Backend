@@ -1,19 +1,37 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
+
 
 const authorsSchema = new mongoose.Schema({
-  userName: { type: String, required: true },
-    password: { type: String, required: true },
-    rol: {
-      type: String,
-      required: true,
-      enum: ["admin", "user"],
-      default: "user",
-    },
+  name: {type: String, required: true},
+  img: {type: String, required: true},
+  gender: {type: String, required: true, enum: [
+    "Ficción",
+    "No ficción",
+    "Misterio",
+    "Ciencia ficción",
+    "Fantasía",
+    "Biografía",
+    "Autoayuda",
+    "Romance",
+    "Histórica",
+    "Juvenil",
+    "Infantil",
+    "Aventura",
+    "Terror",
+    "Poesía",
+    "Novela",
+    "Clásico",
+    "Humor",
+    "Drama",
+    "Crimen",
+    "Ensayos",
+    "Cuentos cortos"
+  ],
+},
 }, {
   timestamps: true,
   collection: "autores",
 });
 
-const authors = mongoose.model("autores", authorsSchema, "autores");
-module.exports = authors;
+const authors = mongoose.model('autores', authorsSchema, 'autores')
+module.exports = authors

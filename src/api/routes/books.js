@@ -8,7 +8,7 @@ booksRoutes.get("/", getBooks);
 booksRoutes.get("/:id", getBookById);
 booksRoutes.get("/author", getBookByAuthor);
 booksRoutes.get("/category", getBookByCategory);
-booksRoutes.post("/", upload.single("img"), newBook);
+booksRoutes.post("/", newBook);
 booksRoutes.put("/", putBook);
 booksRoutes.delete("/:id", deleteBook);
 

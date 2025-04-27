@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const categoriesSchema = new mongoose.Schema({
   title: {type: String, required: true},
   author: {type: String, required: true},
+  img: {type: String, required: true},
   gender: {type: String, required: true, enum: [
     "Ficción",
     "No ficción",
@@ -29,8 +30,8 @@ const categoriesSchema = new mongoose.Schema({
 },
 }, {
   timestamps: true,
-  collection: "categories",
+  collection: "categorias",
 });
 
-const Categories = mongoose.model("categories", categoriesSchema, "categories");
-module.exports = Categories;
+const categories = mongoose.model("categorias", categoriesSchema, "categorias");
+module.exports = categories;

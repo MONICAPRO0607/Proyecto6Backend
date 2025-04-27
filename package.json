@@ -1,6 +1,7 @@
 {
   "name": "proyecto8backend",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -11,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^3.1.7"
+    "nodemon": "^3.1.9"<<<<<<< HEAD
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
@@ -23,7 +24,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.7.3",
     "multer": "^1.4.5-lts.1",
-    "multer-storage-cloudinary": "^4.0.0"
-  },
-  "description": ""
+    "multer-storage-cloudinary": "^4.0.0",
+>>>>>>> 51b3002c2e89692d5f21edf20613c836b94d7da7
+  }
 }

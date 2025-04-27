@@ -6,7 +6,7 @@ const authorsRoutes = require("express").Router();
 authorsRoutes.get("/", getAuthor);
 authorsRoutes.get("/:id", getAuthorById);
 authorsRoutes.post("/", newAuthor);
-authorsRoutes.put("/", putAuthor);
+authorsRoutes.put("/:id", putAuthor);
 authorsRoutes.delete("/:id", deleteAuthor);
 
 
